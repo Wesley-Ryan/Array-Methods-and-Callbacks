@@ -15,12 +15,39 @@ console.log('its working');
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+function getFinals(arr) {
+    let homeTeam2014 = {
+        name: "", 
+        goals: 0
+    }
 
-    /* code here */
+    let awayTeam2014 = { 
+        name: "", 
+        goals: 0
+    }
+
+    let winner = ""
+
+    arr.forEach((item) => {
+        if(item.Year === 2014 && item.Stage === "Final") { 
+            homeTeam2014 = { 
+                name: item["Home Team Name"], 
+                goals: item["Home Team Goals"]
+            }
+
+            awayTeam2014 = {
+                name: item["Away Team Name"], 
+                goals: item["Away Team Goals"]
+            }
+        } 
+    });
+    
+    return console.log("Home Team for 2014 World Cup Final",homeTeam2014) , console.log("Away Team for 2014 World Cup Final",awayTeam2014),
+    console.log("The Winner of the 2014 World Cup is:", homeTeam2014.name)
 
 };
 
+getFinals(fifaData)
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
 function getYears(/* code here */) {
