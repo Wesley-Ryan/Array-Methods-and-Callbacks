@@ -75,13 +75,16 @@ function getWinners(arr, cb) {
 
     let winners = []
 
-    cb(arr).forEach((game)=> { 
+    function checkWinner(game) { 
+
         if(game["Home Team Goals"] > game["Away Team Goals"]) { 
             winners.push(game["Home Team Name"])
         } else { 
             winners.push(game["Away Team Name"])
         }
-    })
+    }
+
+    cb(arr).filter(checkWinner)
     
     return winners
 
